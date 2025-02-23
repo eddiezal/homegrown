@@ -1,17 +1,14 @@
-// src/ui/Section.tsx
-"use client";
-
 import { ReactNode } from "react";
 
 type SectionProps = {
   children: ReactNode;
-  bgColor?: string; // e.g., "bg-neutralBg" or "bg-primary"
+  bgColor?: string; // e.g. "bg-primary" or "bg-white"
   className?: string;
 };
 
 export default function Section({
   children,
-  bgColor = "bg-neutralBg",
+  bgColor = "bg-white",
   className = "",
 }: SectionProps) {
   return (

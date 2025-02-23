@@ -1,20 +1,18 @@
-// src/ui/Button.tsx
-"use client";
-
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "accent";
-  children: React.ReactNode;
+  children: ReactNode;
+  className?: string;
 }
 
 export default function Button({
   variant = "primary",
   children,
-  className,
+  className = "",
   ...props
 }: ButtonProps) {
-  let baseStyles = "font-body font-semibold rounded px-6 py-2 transition";
+  let baseStyles = "inline-block px-6 py-3 rounded font-semibold transition";
   let variantStyles = "";
 
   switch (variant) {
@@ -22,7 +20,7 @@ export default function Button({
       variantStyles = "bg-primary text-white hover:bg-green-700";
       break;
     case "secondary":
-      variantStyles = "bg-gray-300 text-black hover:bg-gray-400";
+      variantStyles = "bg-gray-200 text-gray-800 hover:bg-gray-300";
       break;
     case "accent":
       variantStyles = "bg-accent text-black hover:brightness-110";
@@ -30,10 +28,7 @@ export default function Button({
   }
 
   return (
-    <button
-      className={`${baseStyles} ${variantStyles} ${className || ""}`}
-      {...props}
-    >
+    <button className={`${baseStyles} ${variantStyles} ${className}`} {...props}>
       {children}
     </button>
   );
