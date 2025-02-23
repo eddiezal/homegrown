@@ -1,5 +1,5 @@
 // src/app/layout.tsx
-import "../styles/globals.css";
+import "./styles/global.css";
 import { ReactNode } from "react";
 import Navbar from "../ui/Navbar";
 import Footer from "../ui/Footer";
